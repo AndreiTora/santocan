@@ -22,42 +22,54 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource(value = { "classpath:application.properties" })
 public class HibernateConfiguration {
 
-    @Autowired
-    private Environment environment;
+	  @Autowired
+	    private Environment environment;
 
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.wirtz.santocan.model" });
-        sessionFactory.setHibernateProperties(hibernateProperties());
-        return sessionFactory;
-     }
-	
-    @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-        dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
-        dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
-        dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
-        return dataSource;
-    }
-    
-    private Properties hibernateProperties() {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
-        properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-        properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
-        return properties;        
-    }
-    
-	@Bean
-    @Autowired
-    public HibernateTransactionManager transactionManager(SessionFactory s) {
-       HibernateTransactionManager txManager = new HibernateTransactionManager();
-       txManager.setSessionFactory(s);
-       return txManager;
-    }
+	    @Bean
+	    public LocalSessionFactoryBean sessionFactory() {
+	        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+	        sessionFactory.setDataSource(dataSource());
+	        sessionFactory.setPackagesToScan(new String[] { "com.wirtz.santocan.model" });
+	        sessionFactory.setHibernateProperties(hibernateProperties());
+	        return sessionFactory;
+	     }
+		
+	    @Bean
+	    public DataSource dataSource() {
+	        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+	        dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+	        dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
+	        dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
+	        dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
+	        return dataSource;
+	    }
+	    
+
+	    
+	    private Properties hibernateProperties() {
+	    	final Properties hibernateProperties = new Properties();
+			hibernateProperties.setProperty("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
+			hibernateProperties.setProperty("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
+			hibernateProperties.setProperty("hibernate.hbm2ddl.auto",
+					environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
+			// https://hibernate.atlassian.net/browse/HHH-11722
+
+			// TODO: remove
+			System.out.println("############# " + environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
+			System.out.println("############# " + environment.getRequiredProperty("hibernate.dialect"));
+			System.out.println("############# " + environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
+
+//			hibernateProperties.setProperty("hibernate.legacy_limit_handler",
+//					environment.getRequiredProperty("hibernate.legacy_limit_handler"));
+			return hibernateProperties;  
+	    }
+	    
+		@Bean
+	    @Autowired
+	    public HibernateTransactionManager transactionManager(SessionFactory s) {
+	       HibernateTransactionManager txManager = new HibernateTransactionManager();
+	       txManager.setSessionFactory(s);
+	       return txManager;
+	    }
 }
 
