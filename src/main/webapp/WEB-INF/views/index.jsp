@@ -1,0 +1,245 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+
+<html>
+
+<head>
+
+
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>SANTOCAN: TU REFUGIO</title>
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+	rel="stylesheet">
+<link href="<c:url value='/static/css/templatemo-style.css' />"
+	rel="stylesheet"></link>
+<link href="<c:url value='/static/css/bootstrap.min.css' />"
+	rel="stylesheet"></link>
+
+</head>
+
+<body>
+	<header>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand"> <i class="fas fa-paw"></i>
+						SANTOCAN
+					</a>
+				</div>
+				<nav class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#header">HOME</a></li>
+						<li><a href="#about">SOBRE NOSOTROS</a></li>
+						<li><a href="#collaborators">COLABORADORES</a></li>
+						<li><a href="#contact">CONTACTO</a></li>
+						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
+						<li><a href="<c:url value='/login' />">INICIAR SESIÓN</a>
+						</td></li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<div class="icon-bar">
+		<a href="#" class="facebook"><i class="fab fa-facebook-square"></i></a>
+		<a href="#" class="twitter"><i class="fab fa-twitter"></i></a> <a
+			href="#" class="linkedin"><i class="fab fa-linkedin"></i></a> <a
+			href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+	</div>
+
+	<section id="home">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<p>
+					<h1>
+						<span>SANTOCAN</span>, más que un refugio: una <span>familia</span>.
+					</h1>
+					</p>
+					<div class="element">
+						<div class="sub-element">Ayúdanos a conseguir que nuestros
+							animales vivan cada vez mejor. ¡Colabora, dona, aporta, comparte!
+							Cualquier granito de arena hará que su vida sea un poquito mejor.</div>
+						<a href="#about" class="btn btn-default">HACER DONACIÓN</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="about">
+		<div class="container">
+			<div class="row">
+				<h1>
+					Sobre <span>nosotros</span>
+				</h1>
+
+				<div class="col-md-offset-2 col-md-8">
+
+					<div class="element">
+						<div class="flex-container myFlex">
+							<div class="column">
+								<h2>
+									<i class="fas fa-paw"></i> ¿Quienes somos?
+								</h2>
+								<p>Santocan nacó en 2020 con la idea de dar un refugio a
+									todos esos perros y gatos que no han tenido la suerte de
+									encontrar un hogar todavía.</p>
+								<p>Nos financiamos mediante donaciones altruistas y la
+									mayoría de nuestros trabajadores son voluntarios amantes de los
+									animales.</p>
+								<p>Siempre nos esforzamos para que nuestros animales tengan
+									la mejor calidad posible y reciban todo el amor y cariño que se
+									merecen. Por ello, hacemos jornadas con niños pequeños para
+									realizar juegos en grupo con los perros y gatos.</p>
+							</div>
+							<div class="column">
+								<h2>
+									<i class="fas fa-paw"></i> Encuéntranos
+								</h2>
+								<p>+34 689 52 36 41</p>
+								<p>+34 981 29 67 05</p>
+								<p>Calle Pezuña, 22, A Coruña 15171</p>
+								<p>¿Quieres contactar directamente con nosotros?</p>
+								<p>
+									¡Pulsa <a href="#">aquí</a> para llegar al formulario de
+									contacto! Siempre respondemos con la mayor rapidez y
+									cordialidad. Estaremos encantados de responder tus dudas sobre
+									lo que necesites.
+								</p>
+								<P>También, te animamos a que nos escribas sin motivo
+									alguno, un comentarios amable siempre alienta a nuestros
+									voluntarios.</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section id="collaborators">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<h1>
+						Conoce a nuestros <span>Colaboradores</span>
+					</h1>
+					<div class="element flexWithBox">
+						<p>Santocan tiene el placer de contar con unos grandes
+							profesionales en su día a día, los cuales colaboran con nosotros
+							mediante distinto tipo de aportaciones.</p>
+						<div class="flex-container myFlex">
+							<div class="column">
+								<h2>
+									<i class="fas fa-paw"></i> <br>Veterinarios
+								</h2>
+
+								<ul>
+									<li><a href="https://www.hospitalveterinarioabeiro.com/">Hospital
+											Veterinario Abeiro</a></li>
+									<li><a href="http://www.elarcaveterinaria.es/">El Arca
+											Veterinaria</a></li>
+									<li><a href="https://cvcanis.com/">Clínicas Vet. CANIS</a></li>
+									<li><a href="http://www.cirugiaveterinaria.es/">Centro
+											A Chico</a></li>
+									<li><a href="http://www.nosveterinarios.es/">Nos:
+											Centro Veterinario</a></li>
+								</ul>
+							</div>
+							<div class="column">
+								<h2>
+									<i class="fas fa-paw"></i> <br>Tiendas
+								</h2>
+								<ul>
+									<li><a href="https://www.kiwoko.com/">Kiwoko</a></li>
+									<li><a href="https://www.tiendanimal.es/">Tiendanimal</a></li>
+									<li><a href="https://mascotak.negocio.site/">Mascotak</a></li>
+									<li><a href="http://lucana.es/">Lucana Alimentación</a></li>
+									<li><a href="http://www.petspace.es/">Pet Space</a></li>
+								</ul>
+							</div>
+
+							<div class="column">
+								<h2>
+									<i class="fas fa-paw"></i> <br>Otros
+								</h2>
+								<ul>
+									<li><a href="https://www.dacoruna.gal/portada/">Deputación
+											Provincial de Coruña</a></li>
+									<li><a href="https://www.xunta.gal/portada">Xunta de
+											Coruña</a></li>
+									<li><a href="https://www.miteco.gob.es/es/">Ministerio
+											de Transición Ecológica de España</a></li>
+									<li><a href="https://pacma.es/">PACMA</a></li>
+								</ul>
+							</div>
+						</div>
+						<p>Como toda buena protectora, queremos a nuestros animales en
+							las mejores manos, por lo que siempre buscamos que nuestros
+							colaboradores sean personas o entidades con experiencia y
+							dedicación.</p>
+					</div>
+				</div>
+	</section>
+
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<h1>
+					<span>Contacto</span>
+				</h1>
+
+				<div class="col-md-offset-2 col-md-8">
+
+					<div class="element">
+						<div class="flex-container myFlex">
+							<div class="column">
+								<form id="formContact" action="" method="post">
+									<h4>Contacta con nosotros hoy, y haremos todo lo posible por contestarte lo antes posible.</h4>
+									<fieldset>
+										<input placeholder="Tu nombre" type="text" tabindex="1"
+											required autofocus>
+									</fieldset>
+									<fieldset>
+										<input placeholder="Tu email" type="email"
+											tabindex="2" required>
+									</fieldset>
+									<fieldset>
+										<textarea placeholder="Tu mensaje. Sé majo."
+											tabindex="5" required></textarea>
+									</fieldset>
+									<fieldset>
+										<button name="submit" type="submit" id="contact-submit"
+											data-submit="...Sending">Submit</button>
+									</fieldset>
+								</form>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+</body>
+
+</html>

@@ -62,6 +62,14 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "userslist";
 	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String prueba() {
+		
+			return "index";
+	    
+	}
+
 
 	/**
 	 * This method will provide the medium to add a new user.
