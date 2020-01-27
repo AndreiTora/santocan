@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <html>
 
@@ -19,10 +20,14 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 	rel="stylesheet">
-<link href="<c:url value='/static/css/templatemo-style.css' />"
+<link href="<c:url value='/static/css/santocan.css' />"
 	rel="stylesheet"></link>
 <link href="<c:url value='/static/css/bootstrap.min.css' />"
 	rel="stylesheet"></link>
+	
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -37,15 +42,15 @@
 				</div>
 				<nav class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#header">HOME</a></li>
-						<li><a href="#about">SOBRE NOSOTROS</a></li>
+						<li><a href="#about">NOSOTROS</a></li>
 						<li><a href="#collaborators">COLABORADORES</a></li>
 						<li><a href="#contact">CONTACTO</a></li>
 						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
-						<li><a href="<c:url value='/login' />">INICIAR SESIÓN</a>
-						</td></li>
+						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
+						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
 
 					</ul>
+					
 				</nav>
 			</div>
 		</div>
@@ -137,13 +142,9 @@
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8">
 					<h1>
-						Conoce a nuestros <span>Colaboradores</span>
+						<span>Conoce</span> a nuestros <span>Colaboradores</span>
 					</h1>
-					<div class="element flexWithBox">
-						<p>Santocan tiene el placer de contar con unos grandes
-							profesionales en su día a día, los cuales colaboran con nosotros
-							mediante distinto tipo de aportaciones.</p>
-						<div class="flex-container myFlex">
+						<div class="flex-container flexWithBox">
 							<div class="column">
 								<h2>
 									<i class="fas fa-paw"></i> <br>Veterinarios
@@ -189,10 +190,7 @@
 								</ul>
 							</div>
 						</div>
-						<p>Como toda buena protectora, queremos a nuestros animales en
-							las mejores manos, por lo que siempre buscamos que nuestros
-							colaboradores sean personas o entidades con experiencia y
-							dedicación.</p>
+						
 					</div>
 				</div>
 	</section>
@@ -200,42 +198,18 @@
 	<section id="contact">
 		<div class="container">
 			<div class="row">
-				<h1>
-					<span>Contacto</span>
-				</h1>
-
 				<div class="col-md-offset-2 col-md-8">
-
+					<p>
+					<h1>
+						<span>Contacto</span>
+					</h1>
+					</p>
 					<div class="element">
-						<div class="flex-container myFlex">
-							<div class="column">
-								<form id="formContact" action="" method="post">
-									<h4>Contacta con nosotros hoy, y haremos todo lo posible por contestarte lo antes posible.</h4>
-									<fieldset>
-										<input placeholder="Tu nombre" type="text" tabindex="1"
-											required autofocus>
-									</fieldset>
-									<fieldset>
-										<input placeholder="Tu email" type="email"
-											tabindex="2" required>
-									</fieldset>
-									<fieldset>
-										<textarea placeholder="Tu mensaje. Sé majo."
-											tabindex="5" required></textarea>
-									</fieldset>
-									<fieldset>
-										<button name="submit" type="submit" id="contact-submit"
-											data-submit="...Sending">Submit</button>
-									</fieldset>
-								</form>
-							</div>
-
-
-						</div>
+						
 					</div>
+
 				</div>
 			</div>
-		</div>
 		</div>
 	</section>
 

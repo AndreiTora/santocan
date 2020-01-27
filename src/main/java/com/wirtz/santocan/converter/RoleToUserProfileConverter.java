@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import com.wirtz.santocan.model.user.UserProfile;
 import com.wirtz.santocan.service.user.UserProfileService;
 /**
- * A converter class used in views to map id's to actual userProfile objects.
+ * Una clase convertidor utilizada en las vistas para asignar identificadores a objetos de perfil de usuario reales.
  */
 @Component
 public class RoleToUserProfileConverter implements Converter<Object, UserProfile>{
@@ -20,7 +20,6 @@ public class RoleToUserProfileConverter implements Converter<Object, UserProfile
 	UserProfileService userProfileService;
 
 	/**
-	 * Gets UserProfile by Id
 	 * @see org.springframework.core.convert.converter.Converter#convert(java.lang.Object)
 	 */
 	public UserProfile convert(Object element) {

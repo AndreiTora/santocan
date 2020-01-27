@@ -4,26 +4,15 @@ html{
 
 body{
 	height: 100%;
-	background-color:rgb(245, 245, 245);
+	background-color:#ffffff;
 }
 
 
 #mainWrapper {
 	height: 100%;
-	background-image: -webkit-gradient(
-	linear,
-	right bottom,
-	right top,
-	color-stop(0, #EDEDED),
-	color-stop(0.08, #EAEAEA),
-	color-stop(1, #2F2F2F),
-	color-stop(1, #AAAAAA)
-);
-background-image: -o-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -moz-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -webkit-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: -ms-linear-gradient(top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
-background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, #AAAAAA 100%);
+	background-image: url("../images/perrete.jpg");
+	 background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .floatRight{
@@ -35,8 +24,35 @@ background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, 
 	color:red;
 }
 
+.sincuenta {
+	text-align:center;
+	padding: 1%;
+}
+
+#registrate {
+    background: transparent;
+    border-radius: 2px;
+    color: #6989ba;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 30%;
+    height: 50px;
+    padding: 2%;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+#registrate:hover {
+    background: #0447ac;
+    color: white;
+    border-color: transparent;
+}
+
 .generic-container {
-  position:fixed;
+	
+
+  text-align: center;
   width:80%;
   margin-left: 20px;
   margin-top: 20px;
@@ -45,7 +61,6 @@ background-image: linear-gradient(to top, #EDEDED 0%, #EAEAEA 8%, #2F2F2F 100%, 
   background-color: #EAE7E7;
   border: 1px solid #ddd;
   border-radius: 4px;
-  box-shadow: 0 0 30px black;
 }
 
 .custom-width {
@@ -56,17 +71,33 @@ body, #mainWrapper, .form-control{
 	font-size:12px!important;
 }
 
+#userlist {
+	height: 100%;
+	background-image: url("../images/perrete.jpg");
+	 background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.panel-heading {
+	display: flex;
+	
+}
+
 #mainWrapper {
-	/*height: 720px; Without explicit px values, % in children's does not work*/
-	height: 100vh; /*with Viewport-Percentage, we can handles all devices screens  */
+	
+	height: 100vh;
 	padding-left:10px;
 	padding-right:10px;
 	padding-bottom:10px;
 }
 
+h1 {
+	 text-align: center;
+}
+
 .login-container {
-    margin-top: 100px;
-    background-color: floralwhite;
+    margin-top: 4%;
+    background-color: white;
     width: 40%;
     left: 30%;
     position: absolute;
@@ -77,8 +108,9 @@ body, #mainWrapper, .form-control{
     margin: auto;
 }
 
+
 .login-form {
-    padding: 10%;
+    padding: 3%;
 }
 
 .authbar{

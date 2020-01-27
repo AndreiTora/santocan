@@ -6,14 +6,6 @@ body {
     overflow-x: hidden;
 }
 
-a {
-    color: #0447ac;
-}
-
-a:hover {
-    color: rgb(106, 188, 255);
-    text-decoration: none;
-}
 
 h2 {
 	 color: #ffffff;
@@ -28,10 +20,9 @@ h2 span {
 }
 
 #about,
-#team,
-#service,
-#portfolio,
-#contact {
+#collaborators,
+#contact,
+ {
     padding-top: 60px;
     padding-bottom: 40px;
 }
@@ -152,6 +143,25 @@ h2 span {
     font-size: 16px;
 }
 
+h1 {
+	 
+    font-size: 470%;
+    padding-bottom: 10px;
+}
+
+h1 span {
+    color: #0447ac;
+    font-weight: bold;
+}
+
+#about {
+
+    background-color: white;
+    padding-top: 160px;
+    padding-bottom: 100px;
+    min-height: 865px;
+}
+
 #about h1 {
 	 
     text-align: center;
@@ -188,6 +198,7 @@ h2 span {
     color: #0447ac;
     font-weight: bold;
 }
+
 
 #contact h1 {
 	 
@@ -226,5 +237,8 @@ h2 span {
 .flexWithBox {
     background-color: #fff;
     color: black;
-    padding: 1%;
+     display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 2%;
 }
