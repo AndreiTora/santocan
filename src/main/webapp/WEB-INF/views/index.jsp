@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
-	<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 
 <html>
 
@@ -20,14 +20,16 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 	rel="stylesheet">
-<link href="<c:url value='/static/css/santocan.css' />"
-	rel="stylesheet"></link>
+<link href="<c:url value='/static/css/santocan.css' />" rel="stylesheet"></link>
 <link href="<c:url value='/static/css/bootstrap.min.css' />"
 	rel="stylesheet"></link>
-	
-	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Poiret+One'
+	rel='stylesheet' type='text/css'>
 
 </head>
 
@@ -46,15 +48,32 @@
 						<li><a href="#collaborators">COLABORADORES</a></li>
 						<li><a href="#contact">CONTACTO</a></li>
 						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
-						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
-						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
+						<sec:authorize access="!isAuthenticated()">
+							<li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li>
+						</sec:authorize>
 
 					</ul>
-					
+
 				</nav>
 			</div>
 		</div>
 	</header>
+	<sec:authorize access="isAuthenticated()">
+		<div class="profile-card">
+			<div class="profile-card-box">
+				<h4>
+					<br> <i class="fas fa-user"></i><br>Perfil de Usuario
+				</h4>
+				<p>
+					<strong>${loggedinuser}</strong>
+				</p>
+
+			</div>
+		</div>
+	</sec:authorize>
 
 	<div class="icon-bar">
 		<a href="#" class="facebook"><i class="fab fa-facebook-square"></i></a>
@@ -62,6 +81,8 @@
 			href="#" class="linkedin"><i class="fab fa-linkedin"></i></a> <a
 			href="#" class="youtube"><i class="fab fa-youtube"></i></a>
 	</div>
+
+
 
 	<section id="home">
 		<div class="container">
@@ -119,7 +140,7 @@
 								<p>Calle Pezuña, 22, A Coruña 15171</p>
 								<p>¿Quieres contactar directamente con nosotros?</p>
 								<p>
-									¡Pulsa <a href="#">aquí</a> para llegar al formulario de
+									¡Pulsa <a href="#contact">aquí</a> para llegar al formulario de
 									contacto! Siempre respondemos con la mayor rapidez y
 									cordialidad. Estaremos encantados de responder tus dudas sobre
 									lo que necesites.
@@ -144,55 +165,55 @@
 					<h1>
 						<span>Conoce</span> a nuestros <span>Colaboradores</span>
 					</h1>
-						<div class="flex-container flexWithBox">
-							<div class="column">
-								<h2>
-									<i class="fas fa-paw"></i> <br>Veterinarios
-								</h2>
+					<div class="flex-container flexWithBox">
+						<div class="column">
+							<h2>
+								<i class="fas fa-paw"></i> <br>Veterinarios
+							</h2>
 
-								<ul>
-									<li><a href="https://www.hospitalveterinarioabeiro.com/">Hospital
-											Veterinario Abeiro</a></li>
-									<li><a href="http://www.elarcaveterinaria.es/">El Arca
-											Veterinaria</a></li>
-									<li><a href="https://cvcanis.com/">Clínicas Vet. CANIS</a></li>
-									<li><a href="http://www.cirugiaveterinaria.es/">Centro
-											A Chico</a></li>
-									<li><a href="http://www.nosveterinarios.es/">Nos:
-											Centro Veterinario</a></li>
-								</ul>
-							</div>
-							<div class="column">
-								<h2>
-									<i class="fas fa-paw"></i> <br>Tiendas
-								</h2>
-								<ul>
-									<li><a href="https://www.kiwoko.com/">Kiwoko</a></li>
-									<li><a href="https://www.tiendanimal.es/">Tiendanimal</a></li>
-									<li><a href="https://mascotak.negocio.site/">Mascotak</a></li>
-									<li><a href="http://lucana.es/">Lucana Alimentación</a></li>
-									<li><a href="http://www.petspace.es/">Pet Space</a></li>
-								</ul>
-							</div>
-
-							<div class="column">
-								<h2>
-									<i class="fas fa-paw"></i> <br>Otros
-								</h2>
-								<ul>
-									<li><a href="https://www.dacoruna.gal/portada/">Deputación
-											Provincial de Coruña</a></li>
-									<li><a href="https://www.xunta.gal/portada">Xunta de
-											Coruña</a></li>
-									<li><a href="https://www.miteco.gob.es/es/">Ministerio
-											de Transición Ecológica de España</a></li>
-									<li><a href="https://pacma.es/">PACMA</a></li>
-								</ul>
-							</div>
+							<ul>
+								<li><a href="https://www.hospitalveterinarioabeiro.com/">Hospital
+										Veterinario Abeiro</a></li>
+								<li><a href="http://www.elarcaveterinaria.es/">El Arca
+										Veterinaria</a></li>
+								<li><a href="https://cvcanis.com/">Clínicas Vet. CANIS</a></li>
+								<li><a href="http://www.cirugiaveterinaria.es/">Centro
+										A Chico</a></li>
+								<li><a href="http://www.nosveterinarios.es/">Nos:
+										Centro Veterinario</a></li>
+							</ul>
 						</div>
-						
+						<div class="column">
+							<h2>
+								<i class="fas fa-paw"></i> <br>Tiendas
+							</h2>
+							<ul>
+								<li><a href="https://www.kiwoko.com/">Kiwoko</a></li>
+								<li><a href="https://www.tiendanimal.es/">Tiendanimal</a></li>
+								<li><a href="https://mascotak.negocio.site/">Mascotak</a></li>
+								<li><a href="http://lucana.es/">Lucana Alimentación</a></li>
+								<li><a href="http://www.petspace.es/">Pet Space</a></li>
+							</ul>
+						</div>
+
+						<div class="column">
+							<h2>
+								<i class="fas fa-paw"></i> <br>Otros
+							</h2>
+							<ul>
+								<li><a href="https://www.dacoruna.gal/portada/">Deputación
+										Provincial de Coruña</a></li>
+								<li><a href="https://www.xunta.gal/portada">Xunta de
+										Coruña</a></li>
+								<li><a href="https://www.miteco.gob.es/es/">Ministerio
+										de Transición Ecológica de España</a></li>
+								<li><a href="https://pacma.es/">PACMA</a></li>
+							</ul>
+						</div>
 					</div>
+
 				</div>
+			</div>
 	</section>
 
 	<section id="contact">
@@ -205,9 +226,34 @@
 					</h1>
 					</p>
 					<div class="element">
-						
-					</div>
+						<p>En Santocan nos encanta que las personas nos acribillen a
+							dudas, preguntas y comentarios positivos de gente tan simpática
+							como tú.</p>
+						<p>¡No seas tímido, que aquí no muerde nadie! Bueno, quizá
+							algún perrete si lo molestas, pero es comprensible, ¿no? Anímate.</p>
+						<div class="flex-container flexWithBox">
+							<form id="contact-form" action="mailto:contacto@santocan.com"
+								method="get" enctype="text/plain">
+								<div class="col-md-6 col-sm-6">
+									<input type="text" class="form-control" name="name"
+										placeholder="Nombre" required>
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<input type="email" class="form-control" name="email"
+										placeholder="Email" required>
+								</div>
+								<div class="col-md-12 col-sm-12">
+									<textarea class="form-control" rows="5" name="message"
+										placeholder="Mensaje" required></textarea>
+								</div>
+								<div class="col-md-offset-8 col-md-4 col-sm-offset-6 col-sm-6">
+									<button id="submit" type="submit" class="form-control"
+										name="submit">Enviar Mensaje</button>
 
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -64,8 +64,8 @@ public class AppController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String prueba() {
-		
+	public String prueba(ModelMap model) {
+		model.addAttribute("loggedinuser", getPrincipal());
 			return "index";
 	    
 	}
