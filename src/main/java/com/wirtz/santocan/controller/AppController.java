@@ -24,11 +24,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.wirtz.santocan.model.animal.Animal;
 import com.wirtz.santocan.model.user.User;
 import com.wirtz.santocan.model.user.UserProfile;
+import com.wirtz.santocan.service.animal.AnimalService;
 import com.wirtz.santocan.service.user.UserProfileService;
 import com.wirtz.santocan.service.user.UserService;
-
 
 @Controller
 @RequestMapping("/")
@@ -37,24 +38,26 @@ public class AppController {
 
 	@Autowired
 	UserService userService;
-	
+
+	@Autowired
+	AnimalService animalService;
+
 	@Autowired
 	UserProfileService userProfileService;
-	
+
 	@Autowired
 	MessageSource messageSource;
 
 	@Autowired
 	PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
-	
+
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
-	
-	
+
 	/**
 	 * Este método listará todos los usuarios existentes.
 	 */
-	@RequestMapping(value = {"/list" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
 		List<User> users = userService.findAllUsers();
@@ -62,14 +65,29 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "userslist";
 	}
-	
+
+//	@RequestMapping(value = { "/animals" }, method = RequestMethod.GET)
+//	public String listAnimals(ModelMap model) {
+//
+//		Animal animal = new Animal();
+//
+//		animal.setName("bruno");
+//
+//		animalService.save(animal);
+//
+//		List<Animal> animals = animalService.findAllAnimals();
+//		model.addAttribute("animals", animals);
+//		model.addAttribute("loggedinuser", getPrincipal());
+//		return "animals";
+//
+//	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String prueba(ModelMap model) {
 		model.addAttribute("loggedinuser", getPrincipal());
-			return "index";
-	    
-	}
+		return "index";
 
+	}
 
 	/**
 	 * Este método permitirá crear un nuevo usuario.
@@ -86,29 +104,29 @@ public class AppController {
 	/**
 	 * Este método guardará el usuario creado si no existe ningún error
 	 */
-	
+
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.POST)
-	public String saveUser(@Valid User user, BindingResult result,
-			ModelMap model) {
+	public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
 
 		if (result.hasErrors()) {
 			return "registration";
 		}
 
-		if(!userService.isUserSSOUnique(user.getId(), user.getSsoId())){
-			FieldError ssoError =new FieldError("user","ssoId",messageSource.getMessage("non.unique.ssoId", new String[]{user.getSsoId()}, Locale.getDefault()));
-		    result.addError(ssoError);
+		if (!userService.isUserSSOUnique(user.getId(), user.getSsoId())) {
+			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
+					new String[] { user.getSsoId() }, Locale.getDefault()));
+			result.addError(ssoError);
 			return "registration";
 		}
-		
+
 		userService.saveUser(user);
 
-		model.addAttribute("success", "User " + user.getFirstName() + " "+ user.getLastName() + " registrado correctamente");
+		model.addAttribute("success",
+				"User " + user.getFirstName() + " " + user.getLastName() + " registrado correctamente");
 		model.addAttribute("loggedinuser", getPrincipal());
-		//return "success";
+		// return "success";
 		return "registrationsuccess";
 	}
-
 
 	/**
 	 * Este método permitirá actualizar un usuario ya existente.
@@ -121,14 +139,13 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "registration";
 	}
-	
+
 	/**
 	 * Este método guardará los cambios del usuario editado si no hay ningún error.
 	 */
-	
+
 	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.POST)
-	public String updateUser(@Valid User user, BindingResult result,
-			ModelMap model, @PathVariable String ssoId) {
+	public String updateUser(@Valid User user, BindingResult result, ModelMap model, @PathVariable String ssoId) {
 
 		if (result.hasErrors()) {
 			return "registration";
@@ -136,12 +153,12 @@ public class AppController {
 
 		userService.updateUser(user);
 
-		model.addAttribute("success", "User " + user.getFirstName() + " "+ user.getLastName() + " actualizado correctamente");
+		model.addAttribute("success",
+				"User " + user.getFirstName() + " " + user.getLastName() + " actualizado correctamente");
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "registrationsuccess";
 	}
 
-	
 	/**
 	 * Este método elimina un usuario por su nickname.
 	 */
@@ -150,7 +167,6 @@ public class AppController {
 		userService.deleteUserBySSO(ssoId);
 		return "redirect:/list";
 	}
-	
 
 	/**
 	 * Este método permite listar los roles.
@@ -159,7 +175,7 @@ public class AppController {
 	public List<UserProfile> initializeProfiles() {
 		return userProfileService.findAll();
 	}
-	
+
 	/**
 	 * Este método maneja la redirección de acceso denegado.
 	 */
@@ -170,26 +186,27 @@ public class AppController {
 	}
 
 	/**
-	 *Este método maneja las solicitudes GET de inicio de sesión.
-	 * Si los usuarios ya están conectados e intentan volver a la página de inicio de sesión, serán redirigidos a la página de lista.
+	 * Este método maneja las solicitudes GET de inicio de sesión. Si los usuarios
+	 * ya están conectados e intentan volver a la página de inicio de sesión, serán
+	 * redirigidos a la página de lista.
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
 		if (isCurrentAuthenticationAnonymous()) {
 			return "login";
-	    } else {
-	    	return "redirect:/list";  
-	    }
+		} else {
+			return "redirect:/list";
+		}
 	}
 
 	/**
 	 * Este método maneja las solicitudes de cierre de sesión.
 	 */
-	@RequestMapping(value="/logout", method = RequestMethod.GET)
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response){
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		
-		if (auth != null){    
+
+		if (auth != null) {
 
 			persistentTokenBasedRememberMeServices.logout(request, response, auth);
 			SecurityContextHolder.getContext().setAuthentication(null);
@@ -200,25 +217,25 @@ public class AppController {
 	/**
 	 * Este método devuelve el principal [nombre de usuario] del usuario conectado.
 	 */
-	private String getPrincipal(){
+	private String getPrincipal() {
 		String userName = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 		if (principal instanceof UserDetails) {
-			userName = ((UserDetails)principal).getUsername();
+			userName = ((UserDetails) principal).getUsername();
 		} else {
 			userName = principal.toString();
 		}
 		return userName;
 	}
-	
+
 	/**
-	 * Este método devuelve un booleano dependiendo si los usuarios están autenticados o no.
+	 * Este método devuelve un booleano dependiendo si los usuarios están
+	 * autenticados o no.
 	 */
 	private boolean isCurrentAuthenticationAnonymous() {
-	    final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	    return authenticationTrustResolver.isAnonymous(authentication);
+		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		return authenticationTrustResolver.isAnonymous(authentication);
 	}
-
 
 }

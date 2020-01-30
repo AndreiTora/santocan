@@ -6,24 +6,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
 @Entity
+@Table(name="ANIMAL")
 public class Animal {
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long animalId;
+	private Long animalId;
 	private String name;
 	private String type;
 	private String breed;
     private String description;
-
-	@Temporal(TemporalType.TIMESTAMP)
-    private Date date;
-    private boolean sterilized;
 
     
 	public Animal() {
@@ -31,24 +29,23 @@ public class Animal {
 	}
 	
 
-	public Animal(String name, String type, String breed, String description, Date date, boolean sterilized) {
+	public Animal(String name, String type, String breed, String description) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.breed = breed;
 		this.description = description;
-		this.date = date;
-		this.sterilized = sterilized;
+
 	}
 
 
 
-	public long getAnimalId() {
+	public Long getAnimalId() {
 		return animalId;
 	}
 
 
-	public void setAnimalId(long animalId) {
+	public void setAnimalId(Long animalId) {
 		this.animalId = animalId;
 	}
 
@@ -92,28 +89,4 @@ public class Animal {
 		this.description = description;
 	}
 
-
-	public Date getDate() {
-		return date;
-	}
-
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-
-	public boolean isSterilized() {
-		return sterilized;
-	}
-
-
-	public void setSterilized(boolean sterilized) {
-		this.sterilized = sterilized;
-	}
-
-	
-	
-
-    
 }
