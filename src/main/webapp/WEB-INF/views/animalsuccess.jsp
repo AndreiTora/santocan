@@ -14,11 +14,11 @@
 	<div class="generic-container">
 		
 		<div class="alert alert-success lead">
-	    	Tu animal se ha registrado correctamente. 
+	    	Tu animal se ha registrado/actualizado correctamente. 
 		</div>
 		
 		<span class="well floatRight">
-			Ve a la <a href="<c:url value='/animals' />">lista de animales</a> para comprobarlo
+			Ve a la <a href="<c:url value='/animals' />">lista de animales</a> para comprobarlo.
 		</span>
 	</div>
 </body>

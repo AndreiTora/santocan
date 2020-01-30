@@ -9,7 +9,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Registration Form</title>
+<title>Registro de Usuario</title>
 <link href="<c:url value='/static/css/bootstrap.css' />"
 	rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
@@ -18,16 +18,15 @@
 <body>
 	<div class="generic-container">
 
-		<div class="well lead">User Registration Form</div>
+		<div class="well lead">Registro de Usuario</div>
 		<form:form method="POST" modelAttribute="user" class="form-horizontal">
 			<form:input type="hidden" path="id" id="id" />
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="firstName">First
-						Name</label>
+					<label class="col-md-3 control-lable" for="firstName">Nombre</label>
 					<div class="col-md-7">
-						<form:input type="text" path="firstName" id="firstName"
+						<form:input type="text" path="firstName"
 							class="form-control input-sm" />
 						<div class="has-error">
 							<form:errors path="firstName" class="help-inline" />
@@ -38,10 +37,9 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="lastName">Last
-						Name</label>
+					<label class="col-md-3 control-lable" for="lastName">Apellido</label>
 					<div class="col-md-7">
-						<form:input type="text" path="lastName" id="lastName"
+						<form:input type="text" path="lastName"
 							class="form-control input-sm" />
 						<div class="has-error">
 							<form:errors path="lastName" class="help-inline" />
@@ -52,7 +50,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="ssoId">SSO ID</label>
+					<label class="col-md-3 control-lable" for="ssoId">Nombre Usuario</label>
 					<div class="col-md-7">
 						<c:choose>
 							<c:when test="${edit}">
@@ -73,7 +71,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="password">Password</label>
+					<label class="col-md-3 control-lable" for="password">Contraseña</label>
 					<div class="col-md-7">
 						<form:input type="password" path="password" id="password"
 							class="form-control input-sm" />
@@ -118,12 +116,12 @@
 						<c:when test="${edit}">
 							<input type="submit" value="Update"
 								class="btn btn-primary btn-sm" /> or <a
-								href="<c:url value='/list' />">Cancel</a>
+								href="<c:url value='/list' />">Cancelar</a>
 						</c:when>
 						<c:otherwise>
 							<input type="submit" value="Register"
 								class="btn btn-primary btn-sm" /> or <a
-								href="<c:url value='/list' />">Cancel</a>
+								href="<c:url value='/list' />">Cancelar</a>
 						</c:otherwise>
 					</c:choose>
 				</div>

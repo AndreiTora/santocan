@@ -47,7 +47,7 @@
 						<li><a href="#about">NOSOTROS</a></li>
 						<li><a href="#collaborators">COLABORADORES</a></li>
 						<li><a href="#contact">CONTACTO</a></li>
-						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
+						<li><a href="<c:url value="/animals" />">NUESTROS ANIMALES</a></li>
 						<sec:authorize access="!isAuthenticated()">
 							<li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li>
 						</sec:authorize>

@@ -22,22 +22,21 @@ public class Animal {
 	private String type;
 	private String breed;
     private String description;
+    private String imageUrl;
 
     
 	public Animal() {
 		super();
 	}
-	
 
-	public Animal(String name, String type, String breed, String description) {
+	public Animal(String name, String type, String breed, String description, String imageUrl) {
 		super();
 		this.name = name;
 		this.type = type;
 		this.breed = breed;
 		this.description = description;
-
+		this.imageUrl = imageUrl;
 	}
-
 
 
 	public Long getAnimalId() {
@@ -88,5 +87,17 @@ public class Animal {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+	
+	
 
 }

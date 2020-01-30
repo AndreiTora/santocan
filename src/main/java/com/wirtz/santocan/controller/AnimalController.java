@@ -116,7 +116,7 @@ public class AnimalController {
 		model.addAttribute("Exitoso",
 				"Animal " + animal.getName() + " actualizado correctamente");
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "registrationsuccess";
+		return "animalsuccess";
 	}
 	
 	@RequestMapping(value = { "/delete-animal-{animalId}" }, method = RequestMethod.GET)

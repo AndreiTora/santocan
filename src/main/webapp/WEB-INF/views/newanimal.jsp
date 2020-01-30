@@ -10,7 +10,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Registration Form</title>
+<title>Registrar un Animal</title>
 <link href="<c:url value='/static/css/bootstrap.css' />"
 	rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
@@ -46,8 +46,7 @@
 							<option value="Perro">Perro</option>
 							<option value="Gato">Gato</option>
 						</form:select>
-					<%-- 	<form:input type="text" path="type" id="lastName"
-							class="form-control input-sm" /> --%>
+
 						<div class="has-error">
 							<form:errors path="type" class="help-inline" />
 						</div>
@@ -73,6 +72,19 @@
 					<label class="col-md-3 control-lable" for="description">Description</label>
 					<div class="col-md-7">
 						<form:input type="text" path="description" id="lastName"
+							class="form-control input-sm" />
+						<div class="has-error">
+							<form:errors path="description" class="help-inline" />
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-md-12">
+					<label class="col-md-3 control-lable" for="imageUrl">Url Imagen</label>
+					<div class="col-md-7">
+						<form:input type="text" path="imageUrl" 
 							class="form-control input-sm" />
 						<div class="has-error">
 							<form:errors path="description" class="help-inline" />

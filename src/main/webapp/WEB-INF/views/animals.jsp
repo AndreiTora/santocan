@@ -38,10 +38,10 @@
 				</div>
 				<nav class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#about">NOSOTROS</a></li>
-						<li><a href="#collaborators">COLABORADORES</a></li>
-						<li><a href="#contact">CONTACTO</a></li>
-						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
+						<li><a href="http://localhost:8080/santocan/#about">NOSOTROS</a></li>
+						<li><a href="http://localhost:8080/santocan/#collaborators">COLABORADORES</a></li>
+						<li><a href="http://localhost:8080/santocan/#contact">CONTACTO</a></li>
+						<li><a href="http://localhost:8080/santocan/#ouranimals">NUESTROS ANIMALES</a></li>
 						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
 						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
 
@@ -58,11 +58,12 @@
 		  	<div class="panel-heading"><span class="lead">Lista de Animales</span></div>
 			<table class="table table-hover">
 	    		<thead>
-		      		<tr>
+		      		<tr><th> </th>
 				        <th>Nombre</th>
 				        <th>Tipo</th>
 				        <th>Raza</th>
 				        <th>Descripción</th>
+				     
 				        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
 				        	<th width="100"></th>
 				        </sec:authorize>
@@ -75,10 +76,12 @@
 	    		<tbody>
 				<c:forEach items="${animals}" var="animal">
 					<tr>
+					<td><img src="${animal.imageUrl}"/></td>
 						<td>${animal.name}</td>
 						<td>${animal.type}</td>
 						<td>${animal.breed}</td>
 						<td>${animal.description}</td>
+			
 					    <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
 							<td><a href="<c:url value='/edit-animal-${animal.animalId}' />" class="btn btn-success custom-width">Editar</a></td>
 				        </sec:authorize>

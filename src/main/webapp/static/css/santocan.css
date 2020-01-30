@@ -78,10 +78,10 @@ px
 
 .profile-card {
 	position: fixed;
-	top: 12%;
-	left: 82%;
+	top: 100px;
+	left: 85%;
 	width: 190px;
-	height: 20%;
+	height: 150px;
 	background: #0447ac;
 }
 
@@ -309,3 +309,6 @@ h1 span {
 	background: #022253;
 	color: #ffffff;
 }
+
+td > img {
+	width: 150px;}

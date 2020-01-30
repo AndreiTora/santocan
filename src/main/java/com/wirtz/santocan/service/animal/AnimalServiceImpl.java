@@ -19,7 +19,7 @@ public class AnimalServiceImpl implements AnimalService {
 
 	@Override
 	public List<Animal> findAllAnimals() {
-		// TODO Auto-generated method stub
+		
 		return dao.findAllAnimals();
 	}
 
@@ -37,13 +37,14 @@ public class AnimalServiceImpl implements AnimalService {
 			entity.setType(animal.getType());
 			entity.setBreed(animal.getBreed());
 			entity.setDescription(animal.getDescription());
+			entity.setImageUrl(animal.getImageUrl());
 		
 		
 	}
 
 	@Override
 	public Animal findById(Long id) {
-		// TODO Auto-generated method stub
+
 		return dao.findById(id);
 	}
 
