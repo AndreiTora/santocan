@@ -7,4 +7,6 @@ import com.wirtz.santocan.model.animal.Animal;
 public interface AnimalDao {
 	List<Animal> findAllAnimals();
 	void save(Animal animal);
+	Animal findById(Long id);
+	void deleteById(Long animalId);
 }

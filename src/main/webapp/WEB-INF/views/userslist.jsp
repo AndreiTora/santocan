@@ -53,7 +53,6 @@
 	</header>
 
 	<div class="generic-container" id="containerUsuarios">
-		<%@include file="authheader.jsp" %>	
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->
 		  	<div class="panel-heading"><span class="lead">Lista de Usuarios</span></div>

@@ -3,7 +3,9 @@ package com.wirtz.santocan.dao.animal;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.wirtz.santocan.dao.AbstractDao;
@@ -26,6 +28,26 @@ public class AnimalDaoImpl extends AbstractDao<Long, Animal> implements AnimalDa
 		
 		persist(animal);
 
+	}
+
+	@Override
+	public Animal findById(Long id) {
+
+			Animal animal = getByKey(id);
+			
+			return animal;
+		
+	}
+
+	@Override
+	public void deleteById(Long animalId) {
+		
+			Criteria crit = createEntityCriteria();
+			crit.add(Restrictions.eq("animalId", animalId));
+			Animal animal = (Animal)crit.uniqueResult();
+			delete(animal);
+		
+		
 	}
 
 }

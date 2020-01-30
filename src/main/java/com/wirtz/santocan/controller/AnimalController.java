@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -92,6 +93,36 @@ public class AnimalController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		// return "success";
 		return "animalsuccess";
+	}
+	
+	@RequestMapping(value = { "/edit-animal-{animalId}" }, method = RequestMethod.GET)
+	public String editUser(@PathVariable Long animalId, ModelMap model) {
+		Animal animal = animalService.findById(animalId);
+		model.addAttribute("animal", animal);
+		model.addAttribute("edit", true);
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "newanimal";
+	}
+
+	@RequestMapping(value = { "/edit-animal-{animalId}" }, method = RequestMethod.POST)
+	public String updateUser(@Valid Animal animal, BindingResult result, ModelMap model, @PathVariable Long animalId) {
+
+		if (result.hasErrors()) {
+			return "newanimal";
+		}
+
+		animalService.update(animal);
+
+		model.addAttribute("Exitoso",
+				"Animal " + animal.getName() + " actualizado correctamente");
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "registrationsuccess";
+	}
+	
+	@RequestMapping(value = { "/delete-animal-{animalId}" }, method = RequestMethod.GET)
+	public String deleteUser(@PathVariable Long animalId) {
+		animalService.deleteAnimalById(animalId);
+		return "redirect:/animals";
 	}
 
 }
