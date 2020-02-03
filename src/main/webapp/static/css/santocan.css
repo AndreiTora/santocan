@@ -6,7 +6,7 @@ body {
 	overflow-x: hidden;
 	background-image: url("../images/perrete.jpg");
     background-size: cover;
-  height: calc(100vh);
+  	height: calc(100vh);
 }
 
 h2 {
@@ -292,6 +292,21 @@ h1 span {
 	background: #022253;
 	color: #ffffff;
 }
+
+#donations {
+	color: #fff;
+	padding-top: 160px;
+	padding-bottom: 100px;
+	max-height: 965px;
+	margin: 0 auto;
+	 text-align: center;
+}
+
+#donar {
+	display: inline-block;
+	margin: 0 auto;
+}
+
 
 td > img {
 	width: 150px;}

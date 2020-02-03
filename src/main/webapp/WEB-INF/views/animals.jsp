@@ -42,7 +42,7 @@
 						<li><a href="http://localhost:8080/santocan/#about">NOSOTROS</a></li>
 						<li><a href="http://localhost:8080/santocan/#collaborators">COLABORADORES</a></li>
 						<li><a href="http://localhost:8080/santocan/#contact">CONTACTO</a></li>
-						<li><a href="http://localhost:8080/santocan/#ouranimals">NUESTROS ANIMALES</a></li>
+						<li><a href="http://localhost:8080/santocan/animals">NUESTROS ANIMALES</a></li>
 						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
 						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
 
@@ -52,27 +52,6 @@
 			</div>
 		</div>
 	</header>
-	
-<%-- <div class="py-5">
-    <div class="container">
-      <div class="row hidden-md-up">
-      <c:forEach items="${animals}" var="animal">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h4 class="card-title">Card title 2</h4>
-              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-              <a href="#" class="card-link">link</a>
-              <a href="#" class="card-link">Second link</a>
-            </div>
-          </div>
-        </div>
-        </c:forEach>
-      </div>
-
-    </div>
-  </div> --%>
   
   <div class="row">
   <div class="col-md-2">&nbsp;</div>
@@ -107,23 +86,6 @@
     </div>
     <div class="col-md-2">&nbsp;</div>
   </div>
-	
-				<%-- <c:forEach items="${animals}" var="animal">
-					<tr>
-					<td><img src="${animal.imageUrl}"/></td>
-						<td>${animal.name}</td>
-						<td>${animal.type}</td>
-						<td>${animal.breed}</td>
-						<td>${animal.description}</td>
-			
-					    <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-							<td><a href="<c:url value='/edit-animal-${animal.animalId}' />" class="btn btn-success custom-width">Editar</a></td>
-				        </sec:authorize>
-				        <sec:authorize access="hasRole('ADMIN')">
-							<td><a href="<c:url value='/delete-animal-${animal.animalId}' />" class="btn btn-danger custom-width">Borrar</a></td>
-        				</sec:authorize>
-					</tr>
-				</c:forEach> --%>
 	    		
 		<sec:authorize access="hasRole('ADMIN') ">
 		 	<div>

@@ -66,24 +66,8 @@ public class AppController {
 		return "userslist";
 	}
 
-//	@RequestMapping(value = { "/animals" }, method = RequestMethod.GET)
-//	public String listAnimals(ModelMap model) {
-//
-//		Animal animal = new Animal();
-//
-//		animal.setName("bruno");
-//
-//		animalService.save(animal);
-//
-//		List<Animal> animals = animalService.findAllAnimals();
-//		model.addAttribute("animals", animals);
-//		model.addAttribute("loggedinuser", getPrincipal());
-//		return "animals";
-//
-//	}
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String prueba(ModelMap model) {
+	public String paginaPrincipal(ModelMap model) {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "index";
 

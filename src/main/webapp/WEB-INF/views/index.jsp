@@ -97,7 +97,7 @@
 						<div class="sub-element">Ayúdanos a conseguir que nuestros
 							animales vivan cada vez mejor. ¡Colabora, dona, aporta, comparte!
 							Cualquier granito de arena hará que su vida sea un poquito mejor.</div>
-						<a href="#about" class="btn btn-default">HACER DONACIÓN</a>
+						<a href="<c:url value="/donation" />" class="btn btn-default">HACER DONACIÓN</a>
 					</div>
 
 				</div>
@@ -202,7 +202,7 @@
 							</h2>
 							<ul>
 								<li><a href="https://www.dacoruna.gal/portada/">Deputación
-										Provincial de Coruña</a></li>
+										P. de Coruña</a></li>
 								<li><a href="https://www.xunta.gal/portada">Xunta de
 										Coruña</a></li>
 								<li><a href="https://www.miteco.gob.es/es/">Ministerio

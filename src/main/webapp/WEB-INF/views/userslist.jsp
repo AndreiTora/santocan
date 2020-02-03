@@ -38,10 +38,10 @@
 				</div>
 				<nav class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#about">NOSOTROS</a></li>
-						<li><a href="#collaborators">COLABORADORES</a></li>
-						<li><a href="#contact">CONTACTO</a></li>
-						<li><a href="#ouranimals">NUESTROS ANIMALES</a></li>
+						<li><a href="http://localhost:8080/santocan/#about">NOSOTROS</a></li>
+						<li><a href="http://localhost:8080/santocan/#collaborators">COLABORADORES</a></li>
+						<li><a href="http://localhost:8080/santocan/#contact">CONTACTO</a></li>
+						<li><a href="http://localhost:8080/santocan/animals">NUESTROS ANIMALES</a></li>
 						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
 						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
 
