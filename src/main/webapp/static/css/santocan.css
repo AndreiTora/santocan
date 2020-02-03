@@ -4,6 +4,9 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	overflow-x: hidden;
+	background-image: url("../images/perrete.jpg");
+    background-size: cover;
+  height: calc(100vh);
 }
 
 h2 {
@@ -18,30 +21,6 @@ h2 span {
 	font-weight: bold;
 }
 
-#about
-,
-#collaborators
-,
-#contact
-,
-{
-padding-top
-:
- 
-60
-px
-;
-
-    
-padding-bottom
-:
- 
-40
-px
-;
-
-
-}
 .navbar-default {
 	background: #fff;
 	border: none;
@@ -234,6 +213,10 @@ h1 span {
 #collaborators h1 span {
 	color: #0447ac;
 	font-weight: bold;
+}
+
+#contact {
+	background: #fff;
 }
 
 #contact h1 {

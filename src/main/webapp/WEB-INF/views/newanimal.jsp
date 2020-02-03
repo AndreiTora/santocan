@@ -19,7 +19,7 @@
 <body>
 	<div class="generic-container">
 
-		<div class="well lead">Añadir un nuevo Animal</div>
+		<div class="well lead">Añadir un Animal</div>
 		<form:form method="POST" modelAttribute="animal"
 			class="form-horizontal">
 			<form:input type="hidden" path="animalId" id="id" />
@@ -56,7 +56,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="breed">Breed</label>
+					<label class="col-md-3 control-lable" for="breed">Raza</label>
 					<div class="col-md-7">
 						<form:input type="text" path="breed" id="lastName"
 							class="form-control input-sm" />
@@ -69,7 +69,7 @@
 
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label class="col-md-3 control-lable" for="description">Description</label>
+					<label class="col-md-3 control-lable" for="description">Descripción</label>
 					<div class="col-md-7">
 						<form:input type="text" path="description" id="lastName"
 							class="form-control input-sm" />
@@ -98,14 +98,14 @@
 				<div class="form-actions floatRight">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="Update"
+							<input type="submit" value="Actualizar"
 								class="btn btn-primary btn-sm" /> or <a
-								href="<c:url value='/list' />">Cancel</a>
+								href="<c:url value='/animals' />">Cancelar</a>
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Register"
+							<input type="submit" value="Registrar"
 								class="btn btn-primary btn-sm" /> or <a
-								href="<c:url value='/list' />">Cancel</a>
+								href="<c:url value='/animals' />">Cancelar</a>
 						</c:otherwise>
 					</c:choose>
 				</div>

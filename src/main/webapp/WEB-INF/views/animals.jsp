@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
@@ -6,10 +6,10 @@
 <html>
 
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Lista de Animal</title>
-<link href="<c:url value='/static/css/bootstrap.css' />"
-	rel="stylesheet"></link>
+
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 <link rel="stylesheet" type="text/css"
 	href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
@@ -25,9 +25,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 	rel="stylesheet">
+
 </head>
 
-<body id="userlist">
+<body>
 <header>
 		<div class="navbar navbar-default">
 			<div class="container">
@@ -42,8 +43,8 @@
 						<li><a href="http://localhost:8080/santocan/#collaborators">COLABORADORES</a></li>
 						<li><a href="http://localhost:8080/santocan/#contact">CONTACTO</a></li>
 						<li><a href="http://localhost:8080/santocan/#ouranimals">NUESTROS ANIMALES</a></li>
-						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li></sec:authorize>
-						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÓN</a></li></sec:authorize>
+						<sec:authorize access="!isAuthenticated()"><li><a href="<c:url value='/login' />">INICIAR SESIÃ“N</a></li></sec:authorize>
+						<sec:authorize access="isAuthenticated()"><li><a href="<c:url value="/logout" />">CERRAR SESIÃ“N</a></li></sec:authorize>
 
 					</ul>
 					
@@ -51,30 +52,63 @@
 			</div>
 		</div>
 	</header>
+	
+<%-- <div class="py-5">
+    <div class="container">
+      <div class="row hidden-md-up">
+      <c:forEach items="${animals}" var="animal">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-block">
+              <h4 class="card-title">Card title 2</h4>
+              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+              <a href="#" class="card-link">link</a>
+              <a href="#" class="card-link">Second link</a>
+            </div>
+          </div>
+        </div>
+        </c:forEach>
+      </div>
 
-	<div class="generic-container" id="containerUsuarios">
-		<div class="panel panel-default">
-			  <!-- Default panel contents -->
-		  	<div class="panel-heading"><span class="lead">Lista de Animales</span></div>
-			<table class="table table-hover">
-	    		<thead>
-		      		<tr><th> </th>
-				        <th>Nombre</th>
-				        <th>Tipo</th>
-				        <th>Raza</th>
-				        <th>Descripción</th>
-				     
-				        <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
-				        	<th width="100"></th>
-				        </sec:authorize>
-				        <sec:authorize access="hasRole('ADMIN')">
-				        	<th width="100"></th>
-				        </sec:authorize>
-				        
-					</tr>
-		    	</thead>
-	    		<tbody>
-				<c:forEach items="${animals}" var="animal">
+    </div>
+  </div> --%>
+  
+  <div class="row">
+  <div class="col-md-2">&nbsp;</div>
+  <div class="col-md-8">
+    <div class="row space-16">&nbsp;</div>
+    <div class="row">
+    <c:forEach items="${animals}" var="animal">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="caption text-center">
+            <div class="position-relative">
+              <img src="${animal.imageUrl}" style="width:250px;height:200px;" />
+            </div>
+            <h4 id="thumbnail-label">${animal.name}</h4>
+            <p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp${animal.type} | ${animal.breed}</p>
+            <div class="thumbnail-description smaller">${animal.description}</div>
+          </div>
+          <div class="caption card-footer text-center">
+            <ul class="list-inline">
+              <li>&nbsp;<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+							<td><a href="<c:url value='/edit-animal-${animal.animalId}' />" class="btn btn-success custom-width">Editar</a></td>
+				        </sec:authorize></li>
+              <li></li>
+              <li><a href="#">&nbsp; <sec:authorize access="hasRole('ADMIN')">
+							<td><a href="<c:url value='/delete-animal-${animal.animalId}' />" class="btn btn-danger custom-width">Borrar</a></td>
+        				</sec:authorize></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      	</c:forEach>
+    </div>
+    <div class="col-md-2">&nbsp;</div>
+  </div>
+	
+				<%-- <c:forEach items="${animals}" var="animal">
 					<tr>
 					<td><img src="${animal.imageUrl}"/></td>
 						<td>${animal.name}</td>
@@ -89,15 +123,13 @@
 							<td><a href="<c:url value='/delete-animal-${animal.animalId}' />" class="btn btn-danger custom-width">Borrar</a></td>
         				</sec:authorize>
 					</tr>
-				</c:forEach>
-	    		</tbody>
-	    	</table>
-		</div>
+				</c:forEach> --%>
+	    		
 		<sec:authorize access="hasRole('ADMIN') ">
-		 	<div class="well">
-		 		<a href="<c:url value='animals/new' />">Añadir animal nuevo</a>
+		 	<div>
+		 		<a href="<c:url value='animals/new' />">AÃ±adir animal nuevo</a>
 		 	</div>
 	 	</sec:authorize>
-   	</div>
+   
 </body>
 </html>
