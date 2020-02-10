@@ -68,6 +68,7 @@ public class AnimalController {
 	@RequestMapping(value = { "animals/new" }, method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		Animal animal = new Animal();
+		
 		model.addAttribute("animal", animal);
 		model.addAttribute("edit", false);
 		model.addAttribute("loggedinuser", getPrincipal());

@@ -2,6 +2,7 @@ package com.wirtz.santocan.model.animal;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
@@ -18,9 +21,20 @@ public class Animal {
 	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long animalId;
+	
+	@NotEmpty
+	@Column(name="NAME", nullable=false)
 	private String name;
+	
+	@NotEmpty
+	@Column(name="TYPE", nullable=false)
 	private String type;
+	
+	@NotEmpty
+	@Column(name="BREED", nullable=false)
 	private String breed;
+	@NotEmpty
+	@Column(name="DESCRIPTION",nullable=false)
     private String description;
     private String imageUrl;
 

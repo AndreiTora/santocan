@@ -80,7 +80,7 @@ body, #mainWrapper, .form-control{
 	
 }
 
-#mainWrapper {
+.mainWrapper {
 	
 	height: 100vh;
 	padding-left:10px;
@@ -109,6 +109,8 @@ h1 {
 .login-form {
     padding: 3%;
 }
+
+
 
 .authbar{
 	margin-bottom:15px;

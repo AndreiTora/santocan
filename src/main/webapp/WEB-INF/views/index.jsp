@@ -5,12 +5,9 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 
-
 <html>
 
 <head>
-
-
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>SANTOCAN: TU REFUGIO</title>
 <link

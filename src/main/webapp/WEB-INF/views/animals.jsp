@@ -10,6 +10,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Lista de Animal</title>
 
+<link href="<c:url value='/static/css/bootstrap.css' />"
+	rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 <link rel="stylesheet" type="text/css"
 	href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
@@ -66,18 +68,17 @@
               <img src="${animal.imageUrl}" style="width:250px;height:200px;" />
             </div>
             <h4 id="thumbnail-label">${animal.name}</h4>
-            <p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp${animal.type} | ${animal.breed}</p>
+            <p>&nbsp; ${animal.type} | ${animal.breed}</p>
             <div class="thumbnail-description smaller">${animal.description}</div>
           </div>
           <div class="caption card-footer text-center">
             <ul class="list-inline">
-              <li>&nbsp;<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
+              <li><sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">&nbsp;
 							<td><a href="<c:url value='/edit-animal-${animal.animalId}' />" class="btn btn-success custom-width">Editar</a></td>
 				        </sec:authorize></li>
-              <li></li>
-              <li><a href="#">&nbsp; <sec:authorize access="hasRole('ADMIN')">
+              <li>&nbsp; <sec:authorize access="hasRole('ADMIN')">
 							<td><a href="<c:url value='/delete-animal-${animal.animalId}' />" class="btn btn-danger custom-width">Borrar</a></td>
-        				</sec:authorize></a></li>
+        				</sec:authorize></li>
             </ul>
           </div>
         </div>
@@ -86,10 +87,10 @@
     </div>
     <div class="col-md-2">&nbsp;</div>
   </div>
-	    		
+	    		<br>
 		<sec:authorize access="hasRole('ADMIN') ">
 		 	<div>
-		 		<a href="<c:url value='animals/new' />">Añadir animal nuevo</a>
+		 		<a href="<c:url value='animals/new' />" class="btn btn-primary btn-sm">Añadir animal nuevo</a>
 		 	</div>
 	 	</sec:authorize>
    

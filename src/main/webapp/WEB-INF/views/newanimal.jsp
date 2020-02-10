@@ -10,16 +10,50 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registrar un Animal</title>
+<title>Registrar/Actualizar un Animal</title>
 <link href="<c:url value='/static/css/bootstrap.css' />"
 	rel="stylesheet"></link>
 <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/santocan.css' />" rel="stylesheet"></link>
+<link href="<c:url value='/static/css/bootstrap.min.css' />"
+	rel="stylesheet"></link>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+	rel="stylesheet">
+	<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+	rel="stylesheet">
 </head>
 
 <body>
-	<div class="generic-container">
-
-		<div class="well lead">Añadir un Animal</div>
+	
+	<header>
+		<div class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="<c:url value='/' />" class="navbar-brand"> <i class="fas fa-paw"></i>
+						SANTOCAN
+					</a>
+				</div>
+			</div>
+		</div>
+	</header>
+<div class="mainWrapper">
+		<div class="login-container">
+			<div class="login-card">
+				<div class="login-form">
+					<h1>
+						<span><c:choose>
+								<c:when test="${edit}">
+							Actualizar animal
+						</c:when>
+								<c:otherwise>
+							Crear animal
+						</c:otherwise>
+							</c:choose></span>
+					</h1>
 		<form:form method="POST" modelAttribute="animal"
 			class="form-horizontal">
 			<form:input type="hidden" path="animalId" id="id" />
@@ -86,9 +120,6 @@
 					<div class="col-md-7">
 						<form:input type="text" path="imageUrl" 
 							class="form-control input-sm" />
-						<div class="has-error">
-							<form:errors path="description" class="help-inline" />
-						</div>
 					</div>
 				</div>
 			</div>
@@ -111,5 +142,8 @@
 				</div>
 			</div>
 		</form:form>
+		</div>
+			</div>
+		</div>
 	</div>
 </body>

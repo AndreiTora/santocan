@@ -38,12 +38,12 @@
 		</div>
 	</header>
 
-	<div id="mainWrapper">
+	<div class="mainWrapper">
 		<div class="login-container">
 		<h1>
 					 <span>Inicia</span> Sesión
 				</h1>
-				</p>
+				
 					<div class="element">
 						<div class="sub-element sincuenta">¿No tienes una cuenta todavía con nosotros?</div>
 						<div class="sub-element sincuenta"><a href="<c:url value='/newuser' />">¡Registrate!</a></div>
