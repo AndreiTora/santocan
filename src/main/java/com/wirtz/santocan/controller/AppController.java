@@ -57,6 +57,7 @@ public class AppController {
 	/**
 	 * Este método listará todos los usuarios existentes.
 	 */
+	
 	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
 
@@ -76,6 +77,7 @@ public class AppController {
 	/**
 	 * Este método permitirá crear un nuevo usuario.
 	 */
+	
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		User user = new User();
@@ -115,6 +117,7 @@ public class AppController {
 	/**
 	 * Este método permitirá actualizar un usuario ya existente.
 	 */
+	
 	@RequestMapping(value = { "/edit-user-{ssoId}" }, method = RequestMethod.GET)
 	public String editUser(@PathVariable String ssoId, ModelMap model) {
 		User user = userService.findBySSO(ssoId);
@@ -146,6 +149,7 @@ public class AppController {
 	/**
 	 * Este método elimina un usuario por su nickname.
 	 */
+	
 	@RequestMapping(value = { "/delete-user-{ssoId}" }, method = RequestMethod.GET)
 	public String deleteUser(@PathVariable String ssoId) {
 		userService.deleteUserBySSO(ssoId);
@@ -155,6 +159,7 @@ public class AppController {
 	/**
 	 * Este método permite listar los roles.
 	 */
+	
 	@ModelAttribute("roles")
 	public List<UserProfile> initializeProfiles() {
 		return userProfileService.findAll();
@@ -163,6 +168,7 @@ public class AppController {
 	/**
 	 * Este método maneja la redirección de acceso denegado.
 	 */
+	
 	@RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
 	public String accessDeniedPage(ModelMap model) {
 		model.addAttribute("loggedinuser", getPrincipal());
@@ -174,6 +180,7 @@ public class AppController {
 	 * ya están conectados e intentan volver a la página de inicio de sesión, serán
 	 * redirigidos a la página de lista.
 	 */
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {
 		if (isCurrentAuthenticationAnonymous()) {
@@ -186,6 +193,7 @@ public class AppController {
 	/**
 	 * Este método maneja las solicitudes de cierre de sesión.
 	 */
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -201,6 +209,7 @@ public class AppController {
 	/**
 	 * Este método devuelve el principal [nombre de usuario] del usuario conectado.
 	 */
+	
 	private String getPrincipal() {
 		String userName = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -217,6 +226,7 @@ public class AppController {
 	 * Este método devuelve un booleano dependiendo si los usuarios están
 	 * autenticados o no.
 	 */
+	
 	private boolean isCurrentAuthenticationAnonymous() {
 		final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		return authenticationTrustResolver.isAnonymous(authentication);

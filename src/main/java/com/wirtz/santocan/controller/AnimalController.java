@@ -14,14 +14,12 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.wirtz.santocan.model.animal.Animal;
-import com.wirtz.santocan.model.user.User;
 import com.wirtz.santocan.service.animal.AnimalService;
 
 @Controller
@@ -48,10 +46,7 @@ public class AnimalController {
 		model.addAttribute("animals", animals);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "animals";
-
 	}
-	
-	
 	
 	private String getPrincipal() {
 		String userName = null;
@@ -92,13 +87,14 @@ public class AnimalController {
 				"Animal " + animal.getName() + " registrado correctamente");
 		
 		model.addAttribute("loggedinuser", getPrincipal());
-		// return "success";
+
 		return "animalsuccess";
 	}
 	
 	@RequestMapping(value = { "/edit-animal-{animalId}" }, method = RequestMethod.GET)
 	public String editUser(@PathVariable Long animalId, ModelMap model) {
 		Animal animal = animalService.findById(animalId);
+		
 		model.addAttribute("animal", animal);
 		model.addAttribute("edit", true);
 		model.addAttribute("loggedinuser", getPrincipal());

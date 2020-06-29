@@ -27,6 +27,26 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Poiret+One'
 	rel='stylesheet' type='text/css'>
+	
+	  <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+
+    <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+    
+    <style>
+#map {
+    width: 775px;
+    height: 260px;
+}
+</style>
 
 </head>
 
@@ -148,6 +168,8 @@
 							</div>
 
 						</div>
+														<div id="map"></div>
+				
 					</div>
 				</div>
 			</div>
@@ -256,6 +278,26 @@
 		</div>
 	</section>
 
+<script>
+
+    let pawIcon = L.icon({
+        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Black_Paw.svg/1200px-Black_Paw.svg.png',
+        iconSize: [25, 25], // size of the icon
+        });
+
+
+    let map = L.map('map',{
+    center: [43.317362, -8.311263],
+    zoom: 15
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+     let marker = L.marker([43.317362, -8.311263], {icon: pawIcon}).bindPopup('REFUGIO SANTOCAN').addTo(map);
+
+</script>
 
 </body>
 
