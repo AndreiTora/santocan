@@ -121,10 +121,10 @@
 		<br>
 		<br>
 		<div class="filterBtns">
-			<button class="btn active" onclick="filterSelection('all')">Mostrar
+			<button class="btn active" id="btnAll" onclick="filterSelection('all')">Mostrar
 				Todo</button>
-			<button class="btn" onclick="filterSelection('Perro')">Perros</button>
-			<button class="btn" onclick="filterSelection('Gato')">Gatos</button>
+			<button class="btn" id="btnPerro">Perros</button>
+			<button class="btn" id="btnGato">Gatos</button>
 		</div>
 		<br>
 		<br>

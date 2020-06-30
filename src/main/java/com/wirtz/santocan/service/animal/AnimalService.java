@@ -1,9 +1,7 @@
 package com.wirtz.santocan.service.animal;
 
 import java.util.List;
-
 import com.wirtz.santocan.model.animal.Animal;
-import com.wirtz.santocan.model.user.User;
 
 public interface AnimalService {
 	
@@ -13,3 +11,4 @@ public interface AnimalService {
 	void update(Animal animal);
 	void deleteAnimalById(Long animalId);
 }
+
