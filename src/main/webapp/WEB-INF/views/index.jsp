@@ -27,27 +27,15 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href='http://fonts.googleapis.com/css?family=Poiret+One'
 	rel='stylesheet' type='text/css'>
-	
-	  <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-      crossorigin=""
-    />
 
-    <script
-      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-      crossorigin=""
-    ></script>
-    
-    <style>
-#map {
-    width: 775px;
-    height: 260px;
-}
-</style>
+<link rel="stylesheet"
+	href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	crossorigin="" />
 
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+	crossorigin=""></script>
 </head>
 
 <body>
@@ -64,7 +52,8 @@
 						<li><a href="#about">NOSOTROS</a></li>
 						<li><a href="#collaborators">COLABORADORES</a></li>
 						<li><a href="#contact">CONTACTO</a></li>
-						<li><a href="<c:url value="/animals" />">NUESTROS ANIMALES</a></li>
+						<li><a href="<c:url value="/animals" />">NUESTROS
+								ANIMALES</a></li>
 						<sec:authorize access="!isAuthenticated()">
 							<li><a href="<c:url value='/login' />">INICIAR SESIÓN</a></li>
 						</sec:authorize>
@@ -87,7 +76,11 @@
 				<p>
 					<strong>${loggedinuser}</strong>
 				</p>
-
+				<p>
+					<sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">&nbsp;
+							<a href="<c:url value='/list' />">Ver usuarios</a>
+					</sec:authorize>
+				</p>
 			</div>
 		</div>
 	</sec:authorize>
@@ -114,7 +107,8 @@
 						<div class="sub-element">Ayúdanos a conseguir que nuestros
 							animales vivan cada vez mejor. ¡Colabora, dona, aporta, comparte!
 							Cualquier granito de arena hará que su vida sea un poquito mejor.</div>
-						<a href="<c:url value="/donation" />" class="btn btn-default">HACER DONACIÓN</a>
+						<a href="<c:url value="/donation" />" class="btn btn-default">HACER
+							DONACIÓN</a>
 					</div>
 
 				</div>
@@ -168,8 +162,8 @@
 							</div>
 
 						</div>
-														<div id="map"></div>
-				
+						<div id="map"></div>
+
 					</div>
 				</div>
 			</div>
@@ -278,27 +272,11 @@
 		</div>
 	</section>
 
-<script>
+	<button onclick="topFunction()" class="fa fa-arrow-up" id="botonArriba"
+		title="Ir Arriba"></button>
 
-    let pawIcon = L.icon({
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Black_Paw.svg/1200px-Black_Paw.svg.png',
-        iconSize: [25, 25], // size of the icon
-        });
-
-
-    let map = L.map('map',{
-    center: [43.317362, -8.311263],
-    zoom: 15
-    });
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-     let marker = L.marker([43.317362, -8.311263], {icon: pawIcon}).bindPopup('REFUGIO SANTOCAN').addTo(map);
-
-</script>
-
+	<script src="static/js/buttonToTop.js"></script>
+	<script src="static/js/map.js"></script>
 </body>
 
 </html>
